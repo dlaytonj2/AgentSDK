@@ -1,0 +1,6 @@
+Item 0:
+{
+    "role": "user",
+    "content": "go to Sora and create an image of a house "
+}
+
