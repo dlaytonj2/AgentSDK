@@ -15,9 +15,13 @@ from agents import (
     Trace,
 )
 
-import os
-os.environ["OPENAI_API_KEY"]='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'
+from dotenv import load_dotenv
 
+import os
+# Load environment variables from .env file
+load_dotenv()
+# Set the API key from the environment
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 async def main():
     async with LocalPlaywrightComputer() as computer:

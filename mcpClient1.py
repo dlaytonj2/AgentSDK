@@ -9,7 +9,7 @@ from agents.mcp import MCPServer, MCPServerSse
 from agents.model_settings import ModelSettings
 
 import os
-os.environ["OPENAI_API_KEY"]='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'
+os.environ["OPENAI_API_KEY"]='Your OpenAI API key goes here'
 
 async def run(mcp_server: MCPServer):
     agent = Agent(

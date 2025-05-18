@@ -12,8 +12,13 @@ from agents.voice import (
 )
 from voiceutil import AudioPlayer, record_audio
 
-import os  
-os.environ["OPENAI_API_KEY"]='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'
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+# Set the API key from the environment
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 """
 This is a simple example that uses a recorded audio buffer. 
@@ -46,7 +51,7 @@ Assistant_agent = Agent(
     handoffs=[french_agent]
 )
 
-
+# Override SingleAgentWorkflowCallbacks on_run method 
 class WorkflowCallbacks(SingleAgentWorkflowCallbacks):
     def on_run(self, workflow: SingleAgentVoiceWorkflow, transcription: str) -> None:
         print(f"[debug] on_run called with transcription: {transcription}")

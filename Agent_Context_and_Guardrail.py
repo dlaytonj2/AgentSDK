@@ -1,14 +1,15 @@
-
-
 import asyncio
 from dataclasses import dataclass
 from pydantic import BaseModel
 from agents import Agent, RunContextWrapper, Runner, function_tool, input_guardrail, GuardrailFunctionOutput, InputGuardrailTripwireTriggered
 
-
-
 import os
-os.environ["OPENAI_API_KEY"]='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'
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+# Set the API key from the environment
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 model="gpt-4o-mini"
 
